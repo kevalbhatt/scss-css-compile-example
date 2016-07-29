@@ -1,5 +1,5 @@
 # scss-builder
-All example of scss and example of how to build scss using grunt
+All example of scss and example of how to Compile Sass to CSS using grunt
 
 package is require to build scss using grunt.
 
