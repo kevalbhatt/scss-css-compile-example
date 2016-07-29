@@ -1,4 +1,4 @@
-# scss-builder
+# scss-css-compile-example
 All example of scss and example of how to Compile Sass to CSS using grunt
 
 compile scss to css example:
