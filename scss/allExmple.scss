@@ -1,0 +1,448 @@
+/*
+* @Author: keval
+* @Date:   2016-07-28 11:38:30
+* @Last Modified by:   Keval Bhatt
+* @Last Modified time: 2016-07-29 11:12:31
+*/
+
+
+/* -------------------Variable Arguments-------------------  */
+
+$font-stack: Helvetica,
+sans-serif;
+$primary-color: #333;
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+
+
+/* -------------------Variable Arguments End-------------------  */
+
+
+/* -------------------Variable Defaults: !default-------------------  */
+
+$content: "First content";
+$content: "Second content?" !default;
+$new_content: "First time reference" !default;
+#main {
+    content: $content;
+    new-content: $new_content;
+}
+
+$content: null;
+$content: "Non-null content" !default;
+#main {
+    content: $content;
+}
+
+
+/* -------------------Variable Defaults: !default end-------------------  */
+
+
+/* -------------------& in SassScript-------------------  */
+
+.applyToparent {
+    &:hover {
+        color: red;
+    }
+}
+
+
+/* -------------------& in SassScript end-------------------  */
+
+
+/* -------------------Operators-------------------  */
+
+.container {
+    width: 100%;
+}
+
+article[role="main"] {
+    float: left;
+    width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+    float: right;
+    width: 300px / 960px * 100%;
+}
+
+
+/* -------------------Operators End-------------------  */
+
+
+/* -------------------Interpolation -------------------  */
+
+$name: foo;
+$attr: border;
+p.#{$name} {
+    #{$attr}-color: blue;
+}
+
+
+/* -------------------Operators End-------------------  */
+
+
+/* -------------------Nesting-------------------  */
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        display: inline-block;
+    }
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+
+
+/* -------------------Nesting End-------------------  */
+
+
+/* ------------------------------------@-Rules and Directives --------------------------------  */
+
+
+/* -------------------Import -------------------  */
+
+@import 'includeMe'; //this rest file called  Partials
+
+/* -------------------Import End-------------------  */
+
+
+/* -------------------basic mixin-------------------  */
+
+@mixin border {
+    border-top: 1px dotted #333;
+}
+
+article.post {
+    background: #eee;
+    @include border;
+}
+
+ul.menu {
+    background: #ccc;
+    @include border;
+}
+
+
+/* -------------------basic mixin end-------------------  */
+
+
+/* ------------------- mixin with Arguments-------------------  */
+
+@mixin rounded-corners($radius) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+.btn {
+    @include rounded-corners(2px);
+}
+
+
+/* ------------------- mixin with Arguments end-------------------  */
+
+
+/* -------------------mixin with parameters default value-------------------  */
+
+$color: #000000;
+$width: 1px;
+$style: solid;
+@mixin borderWithDefaultValue($l_color1:$color, $l_width:$width, $style:null) {
+    //Local Variable $l_Color1
+    border: {
+        color: $l_color1;
+        width: $l_width;
+        style: $l_width;
+    }
+}
+
+div {
+    @include borderWithDefaultValue();
+}
+
+div {
+    .override {
+        @include borderWithDefaultValue(#fff, null, null);
+    }
+}
+
+
+/* -------------------mixin with parameters default end-------------------  */
+
+
+/* -------------------Extend/Inheritance-------------------  */
+
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+.success {
+    @extend .message;
+    border-color: green;
+}
+
+.error {
+    @extend .message;
+    border-color: red;
+}
+
+.warning {
+    @extend .message;
+    border-color: yellow;
+}
+
+
+/* Extending Complex Selectors */
+
+.hoverlink {
+    //@extend a:hover; // remove me
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+
+/* Multiple Extends */
+
+.error {
+    border: 1px #f00;
+    background-color: #fdd;
+}
+
+.attention {
+    font-size: 3em;
+    background-color: #ff0;
+}
+
+.seriousError {
+    @extend .error;
+    @extend .attention;
+    border-width: 3px;
+}
+
+
+/* Chaining Extends */
+
+.error {
+    border: 1px #f00;
+    background-color: #fdd;
+}
+
+.seriousError {
+    @extend .error;
+    border-width: 3px;
+}
+
+.criticalError {
+    @extend .seriousError;
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+}
+
+
+/* -------------------Extend/Inheritance End-------------------  */
+
+
+/* -------------------Extend/Inheritance or @extend-Only Selectors -------------------  */
+
+
+/* simple placeholder */
+
+%icon {
+    transition: background-color ease .2s;
+    margin: 0 .5em;
+}
+
+.error-icon {
+    @extend %icon;
+    /* error specific styles... */
+}
+
+
+/* @extend-Only Selectors */
+
+#context a%extreme {
+    color: blue;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.notice {
+    @extend %extreme;
+}
+
+
+/* optional */
+
+a.important {
+    @extend .notice !optional;
+}
+
+
+/* -------------------Extend/Inheritance or @extend-Only SelectorsEnd-------------------  */
+
+
+/* -------------------media End-------------------  */
+
+.sidebar {
+    width: 300px;
+    @media screen and (orientation: landscape) {
+        width: 500px;
+    }
+}
+
+
+/* -------------------media End-------------------  */
+
+
+/* -------------------------------------@-Rules and Directives End---------------------------  */
+
+
+/* ---------------------------Control Directives & Expressions---------------------------  */
+
+
+/*------------------- @if -------------------*/
+
+p {
+    @if 1 + 1==2 {
+        border: 1px solid;
+    }
+    @if 5 < 3 {
+        border: 2px dotted;
+    }
+    @if null {
+        border: 3px double;
+    }
+}
+
+$type: monster;
+p {
+    @if $type==ocean {
+        color: blue;
+    }
+    @else if $type==matador {
+        color: red;
+    }
+    @else if $type==monster {
+        color: green;
+    }
+    @else {
+        color: black;
+    }
+}
+
+
+/*------------------- @if end-------------------*/
+
+
+/*------------------- @for -------------------*/
+
+@for $i from 1 through 3 {
+    .item-#{$i} {
+        width: 2em * $i;
+    }
+}
+
+
+/*------------------- @for end -------------------*/
+
+
+/*------------------- @each -------------------*/
+
+@each $animal in puma,
+sea-slug,
+egret,
+salamander {
+    .#{$animal}-icon {
+        background-image: url('/images/#{$animal}.png');
+    }
+}
+
+
+/* Multiple Assignment */
+
+@each $animal,
+$color,
+$cursor in (puma,
+black,
+default),
+(sea-slug,
+blue,
+pointer),
+(egret,
+white,
+move) {
+    .#{$animal}-icon {
+        background-image: url('/images/#{$animal}.png');
+        border: 2px solid $color;
+        cursor: $cursor;
+    }
+}
+
+
+/* map  example*/
+
+@each $header,
+$size in (h1: 2em,
+h2: 1.5em,
+h3: 1.2em) {
+    #{$header} {
+        font-size: $size;
+    }
+}
+
+
+/*------------------- @each end -------------------*/
+
+
+/* ---------------------------Control Directives & Expressions End---------------------------  */
+
+
+/*-------------------Passing Content Blocks to a Mixin-------------------  */
+
+@mixin apply-to-ie6-only {
+    * html {
+        @content;
+    }
+}
+
+@include apply-to-ie6-only {
+    #logo {
+        background-image: url(/logo.gif);
+    }
+}
+
+
+/*-------------------Passing Content Blocks to a Mixin End/-------------------  */
+
+
+/*-------------------Function Directives-------------------  */
+
+$grid-width: 40px;
+$gutter-width: 10px;
+@function grid-width($n) {
+    @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+#sidebar {
+    width: grid-width(5);
+}
+
+
+/*-------------------Function Directives end-------------------  */
