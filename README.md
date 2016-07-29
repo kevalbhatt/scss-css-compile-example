@@ -1,6 +1,8 @@
 # scss-builder
 All example of scss and example of how to Compile Sass to CSS using grunt
 
+compile scss to css example:
+
 package is require to build scss using grunt.
 
 1. node
