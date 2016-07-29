@@ -11,3 +11,11 @@ package is require to build scss using grunt.
 6. grunt-contrib-watch
 7. load-grunt-tasks
 
+## Getting Started
+
+Download project or clone then run
+
+```shell
+npm install
+```
+It will install all required packages to Compile Sass to CSS
