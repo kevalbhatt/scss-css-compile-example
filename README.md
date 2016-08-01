@@ -64,13 +64,13 @@ npm install
 ```
 It will install all required packages to Compile Scss to CSS
 
-for grunt user after installing npm install run
+for grunt user after running npm install run
 
 ```sh
 grunt dev
 ```
 ---
-for gulp user after installing npm install run
+for gulp user after running npm install run
 
 ```sh
 gulp  //default task will be executed
