@@ -75,9 +75,17 @@ for gulp user after installing npm install run
 ```sh
 gulp  //default task will be executed
 ```
+
+After running gulp command if you see **"No command gulp found"** error then install gulp globally using -g 
+
+```sh
+npm install gulp -g 
+```
+
 ---
 
 License
 ----
+
 
 MIT
