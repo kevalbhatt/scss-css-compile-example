@@ -1,5 +1,5 @@
 # scss-css-compile-example
-All example of scss and example of how to Compile Sass to CSS using grunt
+All example of scss and example of how to Compile Scss to CSS using grunt or gulp
 
 compile scss to css example:
 
@@ -15,6 +15,12 @@ compile scss to css example:
 6. grunt-contrib-watch
 7. load-grunt-tasks
 
+### NPM packages require to compile scss to css using gulp.
+
+1. node
+2. npm
+3. gulp-sass
+4. gulp
 ---
 
 ## Topics covered
@@ -58,10 +64,16 @@ npm install
 ```
 It will install all required packages to Compile Scss to CSS
 
-then after installing npm install run
+for grunt user after installing npm install run
 
 ```sh
 grunt dev
+```
+---
+for gulp user after installing npm install run
+
+```sh
+gulp  //default task will be executed
 ```
 ---
 

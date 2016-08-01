@@ -1,19 +1,21 @@
 {
-  "name": "sccs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gruntfile.js",
-  "dependencies": {
-    "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "load-grunt-tasks": "^3.5.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Keval Bhatt <kevalbhatt18@gmail.com>",
-  "license": "MIT"
+    "name": "sccs",
+    "version": "1.0.0",
+    "description": "Compile Scss to CSS using grunt or gulp",
+    "main": "gruntfile.js",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-cli": "^1.2.0",
+        "grunt-contrib-sass": "^1.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "load-grunt-tasks": "^3.5.0",
+        "gulp": "^3.9.1",
+        "gulp-sass": "^2.3.2"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Keval Bhatt <kevalbhatt18@gmail.com>",
+    "license": "MIT"
 }
