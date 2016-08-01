@@ -38,8 +38,8 @@ compile scss to css example:
          -  simple placeholder
          -  @extend-Only Selectors
          -  optional
-    -  media  
-    h. Control Directives & Expressions
+     -  media  
+     -  Control Directives & Expressions
         -  @if
         -  @for
         -  @each
