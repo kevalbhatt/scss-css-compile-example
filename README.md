@@ -1,5 +1,5 @@
 # scss-css-compile-example
-All example of scss and example of how to Compile Scss to CSS using grunt or gulp
+All example of scss and example of how to Compile Scss to CSS using grunt
 
 compile scss to css example:
 
